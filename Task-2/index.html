@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catchhub – Watch. Communicate. Create.</title>
+  <link rel="icon" href="favicon.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #e84a0f;
+      --orange-light: #f47328;
+      --bg-light: #f0f0f0;
+      --bg-section: #e8e8e8;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-mid: #444;
+      --text-light: #888;
+      --link-blue: #2196f3;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      background: linear-gradient(160deg, #e8e8e8 0%, #d8d8d8 100%);
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 80px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -80px;
+      width: 520px; height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left {
+      flex: 0 0 auto;
+      max-width: 340px;
+    }
+
+    .hero-left .logo {
+      width: 220px;
+      margin-bottom: 18px;
+    }
+
+    .hero-left .tagline-main {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hero-left .tagline-sub {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-mid);
+      margin-bottom: 32px;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .store-buttons img {
+      height: 48px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .store-buttons img:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .hero-right img {
+      max-width: 530px;
+      width: 100%;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.13));
+    }
+
+    /* ── SHARED SECTION STYLES ── */
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 80px;
+      gap: 60px;
+      position: relative;
+    }
+
+    .section-text {
+      max-width: 320px;
+    }
+
+    .section-label {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 5px;
+      color: var(--text-dark);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .section-img {
+      max-width: 460px;
+      width: 100%;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.12));
+    }
+
+    /* ── CHANNELS SECTION ── */
+    .channels-section {
+      background: linear-gradient(170deg, #e2e2e2 0%, #ebebeb 60%, #e0e0e0 100%);
+      flex-direction: row;
+    }
+
+    .channels-section .section-text {
+      text-align: center;
+      margin-left: auto;
+    }
+
+    /* ── MESSAGES SECTION ── */
+    .messages-section {
+      background: linear-gradient(170deg, #ececec 0%, #e5e5e5 100%);
+      flex-direction: row-reverse;
+    }
+
+    .messages-section .section-text {
+      text-align: center;
+      margin-right: auto;
+    }
+
+    /* ── IN FUTURE SECTION ── */
+    .future-section {
+      background: linear-gradient(170deg, #e5e5e5 0%, #eeeeee 100%);
+      flex-direction: row;
+      align-items: flex-start;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .future-section .section-text {
+      text-align: center;
+      margin-left: auto;
+      padding-top: 60px;
+    }
+
+    .future-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .future-icons img {
+      width: 100%;
+      max-width: 420px;
+      opacity: 0.7;
+    }
+
+    /* ── FOOTER / CTA SECTION ── */
+    .footer-cta {
+      background: linear-gradient(160deg, #e8e8e8 0%, #d8d8d8 100%);
+      text-align: center;
+      padding: 60px 40px 50px;
+    }
+
+    .footer-cta .cta-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+      margin-bottom: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-cta .store-buttons {
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .footer-cta .contact-line {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+    }
+
+    .footer-cta .contact-line a {
+      color: var(--link-blue);
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .footer-cta .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .peratude-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .peratude-logo img {
+      width: 72px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        padding: 40px 24px 30px;
+        text-align: center;
+      }
+      .hero-left {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-right {
+        justify-content: center;
+      }
+      .hero-right img { max-width: 340px; }
+
+      .section {
+        flex-direction: column !important;
+        padding: 50px 24px;
+        text-align: center;
+      }
+      .section-text { max-width: 100%; }
+      .section-img { max-width: 320px; }
+      .future-section .section-text { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <img src="logo.png" alt="Catchhub" class="logo"/>
+      <p class="tagline-main">Watch. Communicate. Create.</p>
+      <p class="tagline-sub">Everything you need to socialise</p>
+      <div class="store-buttons">
+        <img src="play_store.png" alt="Available on Android App Store"/>
+        <img src="app_store.png" alt="Download on the App Store"/>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="top_screens.png" alt="App Screenshots"/>
+    </div>
+  </section>
+
+  <!-- ── CHANNELS ── -->
+  <section class="section channels-section">
+    <div class="section-img-wrap">
+      <img src="sec_screens.png" alt="Channels screens" class="section-img"/>
+    </div>
+    <div class="section-text">
+      <p class="section-label">Channels</p>
+      <p class="section-desc">
+        Enjoy the videos and music you love.<br/>
+        Create your own business<br/>
+        or entertainment channel.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── MESSAGES ── -->
+  <section class="section messages-section">
+    <div class="section-text">
+      <p class="section-label">Messages</p>
+      <p class="section-desc">
+        Communicate seamlessly.<br/>
+        Create your own professional<br/>
+        or social group chat
+      </p>
+    </div>
+    <div class="section-img-wrap">
+      <img src="thhh_screens.png" alt="Messages screens" class="section-img"/>
+    </div>
+  </section>
+
+  <!-- ── IN FUTURE ── -->
+  <section class="section future-section">
+    <div class="section-img-wrap">
+      <img src="for_screens.png" alt="Future screens" class="section-img"/>
+    </div>
+    <div class="section-text">
+      <div class="future-icons">
+        <img src="vectors.png" alt="Category icons"/>
+      </div>
+      <p class="section-label">In Future</p>
+      <p class="section-desc">
+        Communicate seamlessly.<br/>
+        Create your own professional<br/>
+        or social group chat
+      </p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER CTA ── -->
+  <section class="footer-cta">
+    <p class="cta-text">For download click here:</p>
+    <div class="store-buttons">
+      <img src="play_store.png" alt="Available on Android App Store"/>
+      <img src="app_store.png" alt="Download on the App Store"/>
+    </div>
+    <p class="contact-line">
+      Any questions? Feel free to <a href="mailto:contact@catchhub.com">CONTACT US</a>
+    </p>
+    <div class="peratude-logo">
+      <img src="peratude.png" alt="Peratude"/>
+    </div>
+  </section>
+
+</body>
+</html>
